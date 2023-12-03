@@ -5,6 +5,7 @@ using namespace std;
 struct NodeFila {
   string NomeArma;
   int Municao;
+  string HexaCor;
   NodeFila* Next = NULL;
 };
 
@@ -20,9 +21,10 @@ class Fila {
         Fila();
         bool Vazia();
         bool Cheia();
-        void Insere(string,int, bool*);
-        void Retira(string*, int*, bool*);
+        void Insere(string,int, string, bool*);
+        void Retira(string*, int*, string*, bool*);
         void DiminuirMunicao(int *x);
+        string ImprimirHexaCor();
 };
 
       Fila::Fila(){
@@ -47,7 +49,7 @@ class Fila {
             return false;
         }
 
-     void Fila::Insere(string x, int y, bool *DeuCerto){
+     void Fila::Insere(string x, int y, string z, bool *DeuCerto){
           if(Cheia() == 1){
             *DeuCerto = false;
             return;
@@ -56,6 +58,7 @@ class Fila {
           FAux = CreateNode();
           FAux->Municao = y;
           FAux->NomeArma = x;
+          FAux->HexaCor = z;
 
           if(Vazia() == true){
             Header.Next = FAux;
@@ -67,7 +70,7 @@ class Fila {
           *DeuCerto = true;
         }
 
-     void Fila::Retira(string *x, int *y, bool *DeuCerto){
+     void Fila::Retira(string *x, int *y, string *z, bool *DeuCerto){
    
             if(Vazia() == 1){
             *DeuCerto = false;
@@ -86,6 +89,7 @@ class Fila {
 
           *x = FAux->NomeArma;
           *y = FAux->Municao;
+          *z = FAux->HexaCor;
           DeleteNode(FAux);
 
 
@@ -98,6 +102,11 @@ class Fila {
         
         *x = Header.Next->Municao;
 
+      }
+
+      string Fila::ImprimirHexaCor(){
+        if(!Vazia())
+          return Header.Next->HexaCor;
       }
 
 
