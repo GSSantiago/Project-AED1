@@ -2,7 +2,6 @@
 #include <string>	
 #include "fila_implementacao.h"
 #include "random.h"
-#include <thread>
 
 #define DEFAULT_AMMO 3
 
