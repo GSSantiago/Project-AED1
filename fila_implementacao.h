@@ -9,6 +9,7 @@ struct NodeFila {
   NodeFila* Next = NULL;
 };
 
+
 class Fila {
     private: 
         NodeFila Header;
@@ -22,6 +23,7 @@ class Fila {
         bool Vazia();
         bool Cheia();
         void Insere(string,int, string, bool*);
+        void Insere_Prioridade(string,string,bool, bool*);
         void Retira(string*, int*, string*, bool*);
         void DiminuirMunicao(int *x);
         string ImprimirHexaCor();
@@ -49,26 +51,26 @@ class Fila {
             return false;
         }
 
-     void Fila::Insere(string x, int y, string z, bool *DeuCerto){
-          if(Cheia() == 1){
-            *DeuCerto = false;
-            return;
-          }
-          NodeFila* FAux;
-          FAux = CreateNode();
-          FAux->Municao = y;
-          FAux->NomeArma = x;
-          FAux->HexaCor = z;
+      void Fila::Insere(string x, int y, string z, bool *DeuCerto){
+            if(Cheia() == 1){
+              *DeuCerto = false;
+              return;
+            }
+            NodeFila* FAux;
+            FAux = CreateNode();
+            FAux->Municao = y;
+            FAux->NomeArma = x;
+            FAux->HexaCor = z;
 
-          if(Vazia() == true){
-            Header.Next = FAux;
-          }
+            if(Vazia() == true){
+              Header.Next = FAux;
+            }
 
-          Ultimo->Next = FAux;
-          Ultimo = FAux;
-          
-          *DeuCerto = true;
-        }
+            Ultimo->Next = FAux;
+            Ultimo = FAux;
+            
+            *DeuCerto = true;
+          }
 
      void Fila::Retira(string *x, int *y, string *z, bool *DeuCerto){
    
@@ -109,6 +111,32 @@ class Fila {
           return Header.Next->HexaCor;
       }
 
+    void Fila::Insere_Prioridade(string x, string y, bool Prioridade, bool *DeuCerto){
+          if(Cheia() == true){
+            *DeuCerto = false;
+            return;
+          }
+          NodeFila* FAux;
+          FAux = CreateNode();
+          FAux->NomeArma = x;
+          FAux->HexaCor = y;
+
+          if(Vazia() == true){
+            Header.Next = FAux;
+          }
+
+          //Se essa inserção possuir prioridade ela será inserida no inicio da fila
+          if(Prioridade == false){
+           Ultimo->Next = FAux;
+           Ultimo = FAux;
+          }
+          else{
+           FAux->Next = Header.Next;
+           Header.Next = FAux;
+         }
+          
+          *DeuCerto = true;
+        }
 
 
 

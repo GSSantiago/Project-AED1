@@ -8,6 +8,7 @@
 
 using namespace std;
 
+
 void Imprimir(Fila* guns){
    Fila FAux;
    string gunName;
@@ -57,53 +58,122 @@ void Disparar(Fila* guns){
   } 
 }
 
-void SelecionarArmas(Fila* guns){
+bool EstaNaFila(Fila* guns, string nomeArma){
+  Fila FAux; 
+  bool DeuCerto;
+  bool estaFila = false;
+  string nomeAux, hexaAux;
+  int municaoAux = 1;
+
+
+  while(!guns->Vazia()){
+   guns->Retira(&nomeAux, &municaoAux, &hexaAux, &DeuCerto);
+   FAux.Insere(nomeAux,municaoAux, hexaAux, &DeuCerto);
+   if(nomeAux == nomeArma)
+      estaFila = true;
+  }
+  
+    while(!FAux.Vazia()){
+   FAux.Retira(&nomeAux, &municaoAux, &hexaAux, &DeuCerto);
+   guns->Insere(nomeAux,municaoAux, hexaAux, &DeuCerto);
+  }
+
+  return estaFila;
+
+}
+
+void AleatorizarArmas(Fila* guns, Fila* player){
+  if(guns->Vazia()){
+    Weapon generatedWeapon;
+    bool DeuCerto;
+    bool estaFila;
+    int aux = 0;
+
+    bool teste;
+    
+    while(aux != 4){
+     generatedWeapon = GerarArmaAleatoria();
+     cout << "Arma gerada" << generatedWeapon.corArma << "\n";
+     cout << "Aux:" << aux << "\n";
+     cout << "Esta na fila " << EstaNaFila(guns, generatedWeapon.corArma) << "\n";
+     if(!EstaNaFila(guns, generatedWeapon.corArma)){
+      estaFila = !EstaNaFila(player, generatedWeapon.corArma);
+      guns->Insere_Prioridade(generatedWeapon.corArma, generatedWeapon.hexaCor, estaFila, &DeuCerto); 
+      aux = aux + 1;
+      }
+    }
+  }
+}
+
+void SelecionarArmas(Fila* player, Fila* guns){
    if(GerarPorcentagemAleatoria() <= 70)
   {
-   Weapon generatedWeapon;
    char isSelected;
    bool isOk = false;
-   generatedWeapon = GerarArmaAleatoria();
-   cout << "Uma arma da cor " << generatedWeapon.corArma << " surgiu, voce deseja pega-la ? Insira o comando E para pegar\n";
+
+   string corAux, hexaAux;
+   int municaoAux;
+
+   if(guns->Vazia())
+      AleatorizarArmas(guns,player);
+    
+  guns->Retira(&corAux, &municaoAux, &hexaAux, &isOk);
+  
+   cout << "Uma arma da cor " << corAux << " surgiu, voce deseja pega-la ? Insira o comando E para pegar\n";
    cin >> isSelected;
 
    if(isSelected == 'e' || isSelected == 'E')
-    guns->Insere(generatedWeapon.corArma , DEFAULT_AMMO, generatedWeapon.hexaCor, &isOk);
+    player->Insere(corAux , DEFAULT_AMMO, hexaAux, &isOk);
   }
 }
 
 
 int main() {
+    Fila player;
     Fila guns;
     bool stopWhile = false;
     bool isOK;
     char command;
 
-    guns.Insere(Weapons[0].corArma, DEFAULT_AMMO, Weapons[0].hexaCor, &isOK);
-    guns.Insere(Weapons[1].corArma, DEFAULT_AMMO,Weapons[1].hexaCor, &isOK);
 
-    while(!stopWhile){
-      cout << "Insira um comando: Z para atirar, I para exibir as informacoes das armas e F para interromper" << "\n";
-     cin >> command;
-     switch (command)
-     {
-     case 'Z':
-     case 'z':
-        Disparar(&guns);
-        SelecionarArmas(&guns);
-        break;
-     case 'I':
-     case 'i':
-        Imprimir(&guns);
-        break;
-    case 'F':
-    case 'f':
-        stopWhile = true;
-        break;
-     default:
-        break;
-     }
-    }
+    bool DeuCerto;
+
+    string nomeAux, hexaAux;
+    int municaoAux = 1;
+
+    player.Insere(Weapons[0].corArma, DEFAULT_AMMO, Weapons[0].hexaCor, &isOK);
+    player.Insere(Weapons[1].corArma, DEFAULT_AMMO,Weapons[1].hexaCor, &isOK);
+
+    AleatorizarArmas(&guns,&player);
+
+    cout << "Armas aleatorias" << "\n";
+    Imprimir(&guns);
+    cout << "-----------------------------------------------" << "\n";
+    Imprimir(&player);
+
+
+    // while(!stopWhile){
+    //   cout << "Insira um comando: Z para atirar, I para exibir as informacoes das armas e F para interromper" << "\n";
+    //  cin >> command;
+    //  switch (command)
+    //  {
+    //  case 'Z':
+    //  case 'z':
+    //     Disparar(&player);
+    //     SelecionarArmas(&player, &guns);
+    //     break;
+    //  case 'I':
+    //  case 'i':
+    //     Imprimir(&player);
+    //     break;
+    // case 'F':
+    // case 'f':
+    //     stopWhile = true;
+    //     break;
+    //  default:
+    //     break;
+    //  }
+    // }
 
     return 0;
 }
