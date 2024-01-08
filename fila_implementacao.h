@@ -109,6 +109,7 @@ class Fila {
       string Fila::ImprimirHexaCor(){
         if(!Vazia())
           return Header.Next->HexaCor;
+        return "";
       }
 
     void Fila::Insere_Prioridade(string x, string y, bool Prioridade, bool *DeuCerto){
@@ -123,16 +124,18 @@ class Fila {
 
           if(Vazia() == true){
             Header.Next = FAux;
-          }
+            Ultimo = FAux;
+          }else {
 
           //Se essa inserção possuir prioridade ela será inserida no inicio da fila
-          if(Prioridade == false){
-           Ultimo->Next = FAux;
-           Ultimo = FAux;
-          }
-          else{
+          if(Prioridade){
            FAux->Next = Header.Next;
            Header.Next = FAux;
+          }
+          else{
+           Ultimo->Next = FAux;
+           Ultimo = FAux;
+         }
          }
           
           *DeuCerto = true;

@@ -88,14 +88,10 @@ void AleatorizarArmas(Fila* guns, Fila* player){
     bool DeuCerto;
     bool estaFila;
     int aux = 0;
-
-    bool teste;
     
     while(aux != 4){
      generatedWeapon = GerarArmaAleatoria();
-     cout << "Arma gerada" << generatedWeapon.corArma << "\n";
-     cout << "Aux:" << aux << "\n";
-     cout << "Esta na fila " << EstaNaFila(guns, generatedWeapon.corArma) << "\n";
+
      if(!EstaNaFila(guns, generatedWeapon.corArma)){
       estaFila = !EstaNaFila(player, generatedWeapon.corArma);
       guns->Insere_Prioridade(generatedWeapon.corArma, generatedWeapon.hexaCor, estaFila, &DeuCerto); 
@@ -135,45 +131,35 @@ int main() {
     bool isOK;
     char command;
 
-
-    bool DeuCerto;
-
     string nomeAux, hexaAux;
-    int municaoAux = 1;
 
     player.Insere(Weapons[0].corArma, DEFAULT_AMMO, Weapons[0].hexaCor, &isOK);
     player.Insere(Weapons[1].corArma, DEFAULT_AMMO,Weapons[1].hexaCor, &isOK);
 
     AleatorizarArmas(&guns,&player);
 
-    cout << "Armas aleatorias" << "\n";
-    Imprimir(&guns);
-    cout << "-----------------------------------------------" << "\n";
-    Imprimir(&player);
-
-
-    // while(!stopWhile){
-    //   cout << "Insira um comando: Z para atirar, I para exibir as informacoes das armas e F para interromper" << "\n";
-    //  cin >> command;
-    //  switch (command)
-    //  {
-    //  case 'Z':
-    //  case 'z':
-    //     Disparar(&player);
-    //     SelecionarArmas(&player, &guns);
-    //     break;
-    //  case 'I':
-    //  case 'i':
-    //     Imprimir(&player);
-    //     break;
-    // case 'F':
-    // case 'f':
-    //     stopWhile = true;
-    //     break;
-    //  default:
-    //     break;
-    //  }
-    // }
+    while(!stopWhile){
+      cout << "Insira um comando: Z para atirar, I para exibir as informacoes das armas e F para interromper" << "\n";
+     cin >> command;
+     switch (command)
+     {
+     case 'Z':
+     case 'z':
+        Disparar(&player);
+        SelecionarArmas(&player, &guns);
+        break;
+     case 'I':
+     case 'i':
+        Imprimir(&player);
+        break;
+    case 'F':
+    case 'f':
+        stopWhile = true;
+        break;
+     default:
+        break;
+     }
+    }
 
     return 0;
 }
