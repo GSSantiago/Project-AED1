@@ -226,9 +226,12 @@ texture_filter = 1
 position = Vector2(2.5, 2.5)
 scale = Vector2(1.15625, 1.15625)
 sprite_frames = SubResource("SpriteFrames_056ks")
-animation = &"Idle_Horizontal"
+animation = &"Up"
 autoplay = "Idle_Horizontal"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5, 2.5)
 shape = SubResource("RectangleShape2D_jbca5")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(15, 2.5)

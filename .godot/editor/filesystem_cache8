@@ -1,9 +1,15 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1706028009
+::res://::1706136064
+Bullet.gd::GDScript::-1::1706129878::0::1::::<>Area2D<>::
+Bullet.tscn::PackedScene::6631145060465365890::1706129878::0::1::::<><>::uid://d4gseufpevef8::::res://Sprites/Bullets/white.png<>res://Bullet.gd
 icon.svg::CompressedTexture2D::4993474289378660905::1705984190::1705984200::1::::<><>::
-player.tscn::PackedScene::8549859255256467342::1705988164::0::1::::<><>::
-world.tscn::PackedScene::2659620017277284671::1705989766::0::1::::<><>::uid://bqmdkm1i2yaks::::res://Tiles/TileTest.png
-::res://Sprites/::1706026459
+player.gd::GDScript::-1::1706128494::0::1::::<>CharacterBody2D<>::
+player.tscn::PackedScene::8549859255256467342::1706128645::0::1::::<><>::uid://cgsnfpee0x8lr::::res://Sprites/Player/Down/tile025.png<>res://player.gd<>uid://bfsi7ms2petdr::::res://Sprites/Player/Down/tile026.png<>uid://dspyy8037t7br::::res://Sprites/Player/Down/tile027.png<>uid://cspyawso4rdb::::res://Sprites/Player/Down/tile028.png<>uid://bb5uvf1aptf2c::::res://Sprites/Player/Down/tile029.png<>uid://bq4xdodgbkd78::::res://Sprites/Player/Down/tile030.png<>uid://3ol4cv4d1ykp::::res://Sprites/Player/Down/tile031.png<>uid://5yx27327mx35::::res://Sprites/Player/Down/tile032.png<>uid://igksnwvvbk0h::::res://Sprites/Player/Down/tile033.png<>uid://bkfw4ywt1ncxj::::res://Sprites/Player/Down/tile034.png<>uid://bdefp8off3g8u::::res://Sprites/Player/Down/tile035.png<>uid://dyvn6en7gqiix::::res://Sprites/Player/Down/tile036.png<>uid://duyd6725fpqx5::::res://Sprites/Player/Idle/tile000.png<>uid://cf2vkhqykgnut::::res://Sprites/Player/Left/tile001 (2).png<>uid://c1am4duacvn22::::res://Sprites/Player/Left/tile000 (2).png<>uid://jcs4bokfdr2h::::res://Sprites/Player/Left/tile007.png<>uid://bdkngfsi2wr4x::::res://Sprites/Player/Left/tile006.png<>uid://byf54ykjen3me::::res://Sprites/Player/Left/tile004.png<>uid://d0cecvpnqexld::::res://Sprites/Player/Left/tile011.png<>uid://bie8y1s0ltbcc::::res://Sprites/Player/Left/tile005.png<>uid://q6yoflunuqcg::::res://Sprites/Player/Left/tile010.png<>uid://u13e865mx1mo::::res://Sprites/Player/Left/tile009.png<>uid://cb2pdg6geexrs::::res://Sprites/Player/Left/tile008.png<>uid://5tolvka66u2j::::res://Sprites/Player/Right/tile002.png<>uid://cgh72mh3pansi::::res://Sprites/Player/Right/tile003.png<>uid://bknlc1mmlfixo::::res://Sprites/Player/Right/tile004.png<>uid://br742vo78roml::::res://Sprites/Player/Right/tile005.png<>uid://d3i54c2fj0vu4::::res://Sprites/Player/Right/tile006.png<>uid://cs5nhfx5jrm5h::::res://Sprites/Player/Right/tile007.png<>uid://cctubxhil60as::::res://Sprites/Player/Right/tile008.png<>uid://dkksn4tavjrcs::::res://Sprites/Player/Right/tile009.png<>uid://jyqgnwrjwgx6::::res://Sprites/Player/Right/tile010.png<>uid://qvursltxqd7e::::res://Sprites/Player/Right/tile011.png<>uid://ff0x6vfalwpt::::res://Sprites/Player/Right/tile012.png<>uid://sqoa80md4dh5::::res://Sprites/Player/Up/tile013.png<>uid://b43xk04s71u5p::::res://Sprites/Player/Up/tile014.png<>uid://cbjm86srul8ha::::res://Sprites/Player/Up/tile015.png<>uid://b1utb3602f83s::::res://Sprites/Player/Up/tile016.png<>uid://dx6uj2a52alrm::::res://Sprites/Player/Up/tile017.png<>uid://onv1rvqq146::::res://Sprites/Player/Up/tile018.png<>uid://depk1jn7ru7i6::::res://Sprites/Player/Up/tile019.png<>uid://dcukn0m2rxfnn::::res://Sprites/Player/Up/tile020.png<>uid://dmenw5dd70x3r::::res://Sprites/Player/Up/tile021.png<>uid://dvsdcpvr124ff::::res://Sprites/Player/Up/tile022.png<>uid://2pcl3kp7rpis::::res://Sprites/Player/Up/tile023.png<>uid://c1aj18eqe7bfq::::res://Sprites/Player/Up/tile024.png
+world.gd::GDScript::-1::1706126506::0::1::::<>Node2D<>::
+world.tscn::PackedScene::2659620017277284671::1706128645::0::1::::<><>::uid://bqmdkm1i2yaks::::res://Tiles/TileTest.png<>res://world.gd<>uid://dt2u6yke3ydlm::::res://player.tscn
+::res://Sprites/::1706046154
+::res://Sprites/Bullets/::1706046798
+white.png::CompressedTexture2D::9208225891030748771::1706046756::1706046798::1::::<><>::
 ::res://Sprites/Monster/::1706026503
 ::res://Sprites/Monster/Down/::1706026549
 tile024.png::CompressedTexture2D::7352075220261547217::1706026323::1706026549::1::::<><>::
@@ -74,11 +80,9 @@ tile036.png::CompressedTexture2D::8887991143382799463::1705992036::1706026542::1
 ::res://Sprites/Player/Idle/::1706028009
 tile000.png::CompressedTexture2D::8612823224354013748::1705992035::1706027857::1::::<><>::
 tile001.png::CompressedTexture2D::5167643017465135213::1705992035::1706027857::1::::<><>::
-::res://Sprites/Player/Left/::1706028009
+::res://Sprites/Player/Left/::1706028160
 tile000 (2).png::CompressedTexture2D::6598531882381136429::1705992279::1706028009::1::::<><>::
 tile001 (2).png::CompressedTexture2D::5180817093207509439::1705992279::1706028005::1::::<><>::
-tile002.png::CompressedTexture2D::2529821096316793177::1705992279::1706026542::1::::<><>::
-tile003.png::CompressedTexture2D::5600568760136525507::1705992279::1706026542::1::::<><>::
 tile004.png::CompressedTexture2D::4083149394005668564::1705992279::1706026542::1::::<><>::
 tile005.png::CompressedTexture2D::2958236858193526578::1705992279::1706026541::1::::<><>::
 tile006.png::CompressedTexture2D::2618431318640869397::1705992279::1706026541::1::::<><>::
