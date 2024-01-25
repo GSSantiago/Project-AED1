@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bd5ls2nn0pdvb"]
+[gd_scene load_steps=6 format=3 uid="uid://bd5ls2nn0pdvb"]
 
 [ext_resource type="Texture2D" uid="uid://bqmdkm1i2yaks" path="res://Tiles/TileTest.png" id="1_d2kkn"]
 [ext_resource type="Script" path="res://world.gd" id="1_y1kw0"]
 [ext_resource type="PackedScene" uid="uid://dt2u6yke3ydlm" path="res://player.tscn" id="2_u7s07"]
-[ext_resource type="PackedScene" uid="uid://d2yjf15q4jwah" path="res://ui.tscn" id="4_65uki"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rkgjk"]
 texture = ExtResource("1_d2kkn")
@@ -61,6 +60,3 @@ position = Vector2(408, 223)
 zoom = Vector2(2.285, 2.285)
 
 [node name="BulletContainer" type="Node2D" parent="."]
-
-[node name="UI" parent="." instance=ExtResource("4_65uki")]
-unique_name_in_owner = true

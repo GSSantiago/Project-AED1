@@ -2,8 +2,15 @@ extends Area2D
 
 @export var speed = 500
 @export var direction : String = "right"
+@export var hexColor: String = "#fff"
+
+@onready var player = $Player
+@onready var sprite = $Sprite2D
+
+var _Fila = Fila.new()
 
 func _ready():
+	sprite.modulate = Color.html(hexColor)
 	if direction == "right" or direction == "left":
 		rotation = 0
 	elif direction == "up":
