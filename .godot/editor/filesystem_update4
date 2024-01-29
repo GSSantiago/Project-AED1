@@ -1,2 +1,13 @@
 res://world.tscn
-res://UI.gd
+res://player.gd
+res://player.tscn
+res://mob.tscn
+res://mob_red.tscn
+res://mob_yellow.tscn
+res://mob_purple.tscn
+res://Bullet.tscn
+res://world.gd
+res://mob_yellow.gd
+res://mob_purple.gd
+res://mob_red.gd
+res://mob_blue.gd

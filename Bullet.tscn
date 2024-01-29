@@ -7,7 +7,7 @@
 size = Vector2(8.5, 1)
 
 [node name="Bullet" type="Area2D"]
-scale = Vector2(6, 6)
+scale = Vector2(4, 4)
 script = ExtResource("1_qyj4t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -24,4 +24,5 @@ shape = SubResource("RectangleShape2D_q5y6e")
 position = Vector2(-5, -2.98023e-08)
 scale = Vector2(0.03125, 0.03125)
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

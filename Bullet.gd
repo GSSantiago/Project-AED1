@@ -7,6 +7,8 @@ extends Area2D
 @onready var player = $Player
 @onready var sprite = $Sprite2D
 
+var world;
+
 var _Fila = Fila.new()
 
 func _ready():
@@ -32,3 +34,19 @@ func _physics_process(delta):
 
 func _on_visible_on_screen_enabler_2d_screen_exited():
 	queue_free()
+
+func _on_body_entered(body):
+	if body.name == "mob":
+		if self.hexColor == "#0000ff":
+			queue_free()
+	elif body.name == "mob_red":
+		if self.hexColor == "#ff0000":
+			queue_free()
+	elif body.name == "mob_yellow":
+		if self.hexColor == "#ffff00":
+			queue_free()
+	elif body.name == "mob_purple":
+		if self.hexColor == "#800080":
+			queue_free()
+	
+	pass # Replace with function body.
